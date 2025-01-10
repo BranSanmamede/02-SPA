@@ -1,0 +1,12 @@
+<div class="row row-fluid">
+    <div *ngFor="let heroe of heroes; let i = index" class="col animated animate_FadeInRight">
+        <div class="card">
+            <img [src]="heroe.img" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{heroe.nombre}}</h5>
+                <p class="card-text">{{heroe.bio}}</p>
+                <button (click)="verHeroe(heroe.id)" class="btn btn-primary">Ver más</button>
+            </div>
+        </div>
+    </div>
+</div>
