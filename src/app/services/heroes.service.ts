@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { DataService } from './data.service';
+import heroes from '../../assets/json/heroes.json';
+import paisesHispanos from '../../assets/json/paises-hispanos.json';
 
 @Injectable()
 export class HeroeService {
-  private heroesUrl = 'assets/heroes.json'; 
-  public heroes:Heroe[] = [];
+
+  public heroes:Heroe[] = heroes;
   
-  constructor(private dataService: DataService) { }
-  
-  getHeroes(): Observable<Heroe[]>  {
-    return this.dataService.getJSONData(this.heroesUrl);
+  getPaisesHispanos() {
+    return paisesHispanos;
   }
   
   findHeroes(texto: string): Heroe[] {

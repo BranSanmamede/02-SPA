@@ -13,9 +13,7 @@ export class SearchComponent implements OnInit{
     heroes: Heroe[] = [];
     texto: string = '';
 
-    constructor(private heroeService: HeroeService, private router: Router, private activatedRoute: ActivatedRoute){
-        console.log("Hoal");
-    }  
+    constructor(private heroeService: HeroeService, private router: Router, private activatedRoute: ActivatedRoute){}  
     
     ngOnInit() { 
         this.activatedRoute.params.subscribe(params => {

@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class HeroeComponent implements OnInit{
     heroe: any;
 
-    constructor(private _heroeService: HeroeService, private activatedRoute: ActivatedRoute){
+    constructor(private heroeService: HeroeService, private activatedRoute: ActivatedRoute){
         this.activatedRoute.params.subscribe(
             params=> {
                 console.log(params['id']);
@@ -19,6 +19,6 @@ export class HeroeComponent implements OnInit{
     }
 
     ngOnInit() {
-        this.heroe = this._heroeService.getHeroes();
+        this.heroe = this.heroeService.heroes;
     }
 }
