@@ -4,7 +4,7 @@
             <img [src]="heroe.img" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{heroe.nombre}}</h5>
-                <p class="card-text">{{heroe.bio}}</p>
+                <p class="card-text">{{heroe.bio | slice:0:100}}</p>
                 <button (click)="verHeroe(heroe.id)" class="btn btn-primary">Ver más</button>
             </div>
         </div>
