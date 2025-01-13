@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DataService } from './data.service';
 
 @Injectable()
 export class HeroeService {
+  private heroesUrl = 'assets/heroes.json'; 
   public heroes:Heroe[] = [];
   
-  constructor(private http: HttpClient) { }
+  constructor(private dataService: DataService) { }
   
-  async loadHeroes(): Promise<void> {
-    const data = await this.http.get<Heroe[]>('assets/heroes.json').toPromise();
-    this.heroes = data;  
-  }
-  
-  getHeroes(): Heroe[] {
-    this.loadHeroes();
-    return this.heroes;
+  getHeroes(): Observable<Heroe[]>  {
+    return this.dataService.getJSONData(this.heroesUrl);
   }
   
   findHeroes(texto: string): Heroe[] {
